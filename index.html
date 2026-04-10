@@ -2,489 +2,173 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>OWL SYSTEMS® — Adresse technique</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Personnalisations */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0B0E14;
-            background-image: url('images/background.webp');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            color: #FFFFFF;
-            position: relative;
         }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(11, 14, 20, 0.45);
-            backdrop-filter: blur(1.5px);
-            z-index: 1;
-        }
-
-        /* ----- COOKIES (icone cyan) ----- */
-        .cookie-icon {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 999;
-        }
-
-        .cookie-icon a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: rgba(11, 14, 20, 0.7);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(0, 255, 255, 0.5);
-            border-radius: 50%;
-            color: #00FFFF;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-
-        .cookie-icon a:hover {
-            border-color: #00FFFF;
-            box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
-        }
-
-        .cookie-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        /* ----- CHOUETTE - HAUTEUR FIXE 1280px, Z-INDEX 100, ANCRÉE EN HAUT ----- */
-        .owl-block {
-            position: fixed;
-            left: -5%;
-            top: 0;
-            width: 50%;
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-end;
-            pointer-events: none;
-            z-index: 100;
-        }
-
-        .owl-image {
-            height: 1280px;
-            width: auto;
-            max-width: none;
-            object-fit: contain;
-            object-position: right top;
-            filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.9));
-            pointer-events: none;
-        }
-
-        /* ----- CONTAINER PRINCIPAL (bordure + lueur cyan) ----- */
-        .landing-container {
-            max-width: 1100px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: flex-end;
-            background: rgba(11, 14, 20, 0.55);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.4);
-            border-radius: 2rem;
-            padding: 2.5rem 3rem;
-            box-shadow: 
-                0 30px 60px -15px rgba(0, 0, 0, 0.8),
-                0 0 0 1px rgba(0, 255, 255, 0.2) inset,
-                0 0 50px rgba(0, 255, 255, 0.5),
-                0 0 100px rgba(0, 255, 255, 0.3),
-                0 0 150px rgba(0, 200, 255, 0.15);
-            position: relative;
-            z-index: 10;
-        }
-
-        /* ----- LOGO (coin haut droit) ----- */
-        .logo-corner {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 200;
-        }
-
-        .logo-corner img {
-            height: 60px;
-            width: auto;
-            filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.4));
-        }
-
-        /* ----- CONTENU TEXTE & FORM ----- */
-        .content-block {
-            flex: 0 1 500px;
-            min-width: 350px;
-        }
-
-        .brand-tagline {
+        .font-museo {
             font-family: 'MuseoModerno', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #00FFFF;
-            margin-bottom: 1.25rem;
-            font-weight: 600;
-            text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
         }
-
-        h1 {
-            font-family: 'MuseoModerno', sans-serif;
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            color: #FFFFFF;
-        }
-
-        .highlight {
-            color: #00FFFF;
+        .glow-cyan {
             text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
         }
-
-        .registered {
-            font-size: 1.2rem;
-            color: #00FFFF;
-            vertical-align: super;
+        .bg-owl-dark {
+            background-color: rgba(11, 14, 20, 0.55);
         }
-
-        .description {
-            font-size: 1rem;
-            color: #CCE6F4;
-            margin-bottom: 1.5rem;
+        /* La chouette est cachée par défaut, visible à partir de 768px */
+        .owl-block {
+            display: none;
         }
-
-        /* Bloc site officiel (cyan accent) */
-        .official-site {
-            background: rgba(0, 255, 255, 0.04);
-            border-left: 4px solid #00FFFF;
-            padding: 1.2rem 1.5rem;
-            border-radius: 0 16px 16px 0;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
-        }
-
-        .official-site p {
-            font-family: 'MuseoModerno', sans-serif;
-            color: #9BBFDF;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .official-link {
-            font-family: 'MuseoModerno', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            text-decoration: none;
-            border-bottom: 2px solid rgba(0, 255, 255, 0.6);
-            transition: 0.2s;
-        }
-
-        .official-link:hover {
-            border-bottom-color: #00FFFF;
-            color: #00FFFF;
-            text-shadow: 0 0 6px cyan;
-        }
-
-        /* ----- FORMULAIRE AUDIT (cyan) ----- */
-        .audit-form {
-            background: rgba(0, 255, 255, 0.04);
-            border: 1px solid rgba(0, 255, 255, 0.25);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            backdrop-filter: blur(2px);
-        }
-
-        .audit-form h3 {
-            font-family: 'MuseoModerno', sans-serif;
-            color: #00FFFF;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            margin-bottom: 0.25rem;
-            letter-spacing: 1px;
-        }
-
-        .audit-form p {
-            color: #B8D0E8;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-group {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .form-group input {
-            flex: 1;
-            background: rgba(11, 14, 20, 0.7);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            border-radius: 40px;
-            padding: 0.8rem 1.2rem;
-            color: #FFFFFF;
-            outline: none;
-            font-family: 'Inter', sans-serif;
-            transition: 0.2s;
-        }
-
-        .form-group input:focus {
-            border-color: #00FFFF;
-            box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
-        }
-
-        .form-group button {
-            background: rgba(0, 255, 255, 0.12);
-            border: 1px solid rgba(0, 255, 255, 0.5);
-            border-radius: 40px;
-            padding: 0.8rem 1.5rem;
-            font-family: 'MuseoModerno', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: #00FFFF;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .form-group button:hover {
-            background: rgba(0, 255, 255, 0.25);
-            border-color: #00FFFF;
-            box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
-            color: #FFFFFF;
-        }
-
-        /* ----- SUPPORT (cyan) ----- */
-        .support-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .support-item {
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .support-label {
-            font-family: 'MuseoModerno', sans-serif;
-            min-width: 90px;
-            color: #7FABD0;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-
-        .support-value a {
-            color: #00FFFF;
-            text-decoration: none;
-            border-bottom: 1px dotted rgba(0, 255, 255, 0.5);
-        }
-
-        .support-value a:hover {
-            color: #FFFFFF;
-            border-bottom-color: #00FFFF;
-        }
-
-        .support-value {
-            color: #D0E5FF;
-        }
-
-        /* Message client */
-        .client-message {
-            display: inline-block;
-            background: rgba(0, 255, 255, 0.06);
-            padding: 0.4rem 1rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-        }
-
-        .client-message a {
-            color: #00FFFF;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .client-message a:hover {
-            text-decoration: underline;
-            text-shadow: 0 0 4px cyan;
-        }
-
-        /* Footer */
-        .footer-note {
-            border-top: 1px solid rgba(0, 255, 255, 0.2);
-            padding-top: 1rem;
-            font-size: 0.7rem;
-            color: #88A9C9;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .footer-note .legal {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .footer-note .slogan {
-            font-family: 'MuseoModerno', sans-serif;
-            color: #00FFFF;
-            font-style: italic;
-            font-weight: 500;
-            text-shadow: 0 0 3px rgba(0, 255, 255, 0.5);
-        }
-
-        /* ----- DISPARITION DE LA CHOUETTE QUAND FENÊTRE TROP PETITE ----- */
-        @media (max-width: 1100px) {
+        @media (min-width: 768px) {
             .owl-block {
+                display: flex;
+                position: fixed;
+                left: -5%;
+                top: 0;
                 width: 45%;
+                height: 100%;
+                align-items: flex-start;
+                justify-content: flex-end;
+                pointer-events: none;
+                z-index: 100;
+            }
+            .owl-image {
+                height: 1280px;
+                width: auto;
+                max-width: none;
+                object-fit: contain;
+                object-position: right top;
+                filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.9));
+                pointer-events: none;
             }
         }
-
-        @media (max-width: 950px) {
-            .owl-block {
-                width: 35%;
-            }
-        }
-
-        @media (max-width: 850px) {
-            .owl-block {
-                display: none;
-            }
-        }
-
-        @media (max-width: 750px) {
+        /* Ajustement pour que le conteneur ne soit pas écrasé par la chouette sur tablette/desktop */
+        @media (min-width: 768px) {
             .landing-container {
-                padding: 1.5rem;
+                margin-left: auto;
+                margin-right: 0;
             }
-            h1 {
-                font-size: 2.5rem;
-            }
-            .form-group {
-                flex-direction: column;
-            }
-            .footer-note {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            .official-link {
-                font-size: 1.3rem;
-            }
+        }
+        /* Anti-débordement texte */
+        .break-anywhere {
+            overflow-wrap: break-word;
+            word-break: break-word;
         }
     </style>
 </head>
-<body>
-    <!-- Icône cookies en cyan -->
-    <div class="cookie-icon">
-        <a href="/cookies" aria-label="Politique des cookies">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<body class="bg-[#0B0E14] bg-cover bg-center min-h-screen flex items-center justify-center p-4 md:p-8 relative overflow-x-hidden"
+      style="background-image: url('images/background.webp');">
+
+    <!-- Overlay -->
+    <div class="fixed inset-0 bg-black/45 backdrop-blur-[1.5px] z-0"></div>
+
+    <!-- Icône cookies -->
+    <div class="fixed bottom-5 left-5 z-[999]">
+        <a href="/cookies" class="flex items-center justify-center w-11 h-11 bg-black/70 backdrop-blur-md border border-cyan-400/50 rounded-full text-cyan-400 hover:border-cyan-400 hover:shadow-[0_0_12px_#00FFFF] transition">
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-3.45 2.19-6.39 5.28-7.53-.12.34-.19.7-.19 1.08 0 1.66 1.34 3 3 3 .38 0 .74-.07 1.08-.19C12.61 9.81 15.55 12 15.55 15c0 1.93-1.57 3.5-3.5 3.5-1.93 0-3.5-1.57-3.5-3.5 0-.38.07-.74.19-1.08C7.81 13.39 6 16.55 6 20h12c0-4.41-3.59-8-8-8z"/>
             </svg>
         </a>
     </div>
 
-    <!-- Bloc chouette avec effet cyan -->
+    <!-- Chouette (visible dès 768px) -->
     <div class="owl-block">
         <img src="images/owl.png" alt="OWL Systems - hiboux gardiens" class="owl-image">
     </div>
 
-    <div class="landing-container">
-        <div class="logo-corner">
-            <img src="images/owl-logo.png" alt="OWL SYSTEMS logo">
+    <!-- Conteneur principal -->
+    <div class="landing-container relative z-10 w-full max-w-[1100px] bg-owl-dark backdrop-blur-xl border border-cyan-400/40 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),inset_0_0_0_1px_rgba(0,255,255,0.2),0_0_50px_rgba(0,255,255,0.5)]">
+        
+        <!-- Logo : centré sur mobile (<768px), position absolue à droite sur tablette/desktop (>=768px) -->
+        <div class="relative md:absolute md:top-5 md:right-5 z-20 flex justify-center md:block mt-4 md:mt-0">
+            <img src="images/owl-logo.png" alt="OWL SYSTEMS logo" class="h-12 md:h-14 w-auto drop-shadow-[0_0_15px_rgba(0,255,255,0.4)]">
         </div>
 
-        <div class="content-block">
-            <div class="brand-tagline">Sécurité. Confiance. Performance.</div>
+        <!-- Contenu texte & formulaire, poussé à droite sur desktop pour éviter la chouette -->
+        <div class="p-5 md:p-8 lg:p-10 w-full md:max-w-[500px] lg:max-w-[550px] ml-auto">
+            <div class="font-museo text-xs md:text-sm uppercase tracking-[0.2em] text-cyan-400 mb-4 font-semibold glow-cyan">
+                Sécurité. Confiance. Performance.
+            </div>
             
-            <h1><span class="highlight">OWL</span> SYSTEMS<span class="registered">®</span></h1>
+            <h1 class="font-museo text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white mb-2">
+                <span class="text-cyan-400 glow-cyan">OWL</span> SYSTEMS<span class="text-cyan-400 text-lg md:text-2xl align-super">®</span>
+            </h1>
             
-            <p class="description">
+            <p class="text-cyan-100/80 text-sm md:text-base mb-4 break-anywhere">
                 Ce nom de domaine est une adresse technique utilisée par OWL SYSTEMS®.<br>
                 Le site officiel est accessible à l'adresse ci-dessous.
             </p>
 
-            <div class="official-site">
-                <p>Site officiel</p>
-                <a href="https://owl-systems.com" class="official-link">owl-systems.com</a>
+            <!-- Bloc site officiel -->
+            <div class="bg-cyan-500/5 border-l-4 border-cyan-400 p-4 rounded-r-xl mb-5 shadow-[0_2px_10px_rgba(0,255,255,0.1)]">
+                <p class="font-museo text-cyan-300/70 text-xs uppercase tracking-wide">Site officiel</p>
+                <a href="https://owl-systems.com" class="font-museo text-xl md:text-2xl lg:text-3xl font-bold text-white border-b-2 border-cyan-400/60 hover:border-cyan-400 hover:text-cyan-400 transition break-all">owl-systems.com</a>
             </div>
 
-            <div class="audit-form">
-                <h3>Audit gratuit</h3>
-                <p>Entrez l'URL de votre site pour un diagnostic immédiat.</p>
-                <div class="form-group">
-                    <input type="text" placeholder="https://votre-site.com" id="auditUrl">
-                    <button type="submit" id="analyzeBtn">Analyser →</button>
+            <!-- Formulaire audit -->
+            <div class="bg-cyan-500/5 border border-cyan-400/30 rounded-2xl p-4 md:p-5 backdrop-blur-sm mb-5">
+                <h3 class="font-museo text-cyan-400 text-base md:text-lg uppercase tracking-wide">Audit gratuit</h3>
+                <p class="text-cyan-200/80 text-xs md:text-sm mb-3">Entrez l'URL de votre site pour un diagnostic immédiat.</p>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <input type="text" id="auditUrl" placeholder="https://votre-site.com" 
+                           class="flex-1 bg-black/70 border border-cyan-400/40 rounded-full px-4 py-2 text-white text-sm focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_12px_rgba(0,255,255,0.3)]">
+                    <button id="analyzeBtn" 
+                            class="bg-cyan-500/20 border border-cyan-400/60 rounded-full px-5 py-2 font-museo font-bold uppercase text-cyan-400 text-sm hover:bg-cyan-500/40 hover:text-white transition">
+                        Analyser →
+                    </button>
                 </div>
             </div>
 
-            <div class="support-info">
-                <div class="support-item">
-                    <span class="support-label">Support</span>
-                    <span class="support-value"><a href="mailto:support@owl-systems.com">support@owl-systems.com</a></span>
+            <!-- Support -->
+            <div class="space-y-2 mb-4 text-sm">
+                <div class="flex flex-wrap gap-2">
+                    <span class="font-museo text-cyan-300/80 min-w-[70px] text-xs uppercase">Support</span>
+                    <span class="text-cyan-100 break-all"><a href="mailto:support@owl-systems.com" class="text-cyan-400 border-b border-dotted border-cyan-400/50 hover:text-white">support@owl-systems.com</a></span>
                 </div>
-                <div class="support-item">
-                    <span class="support-label">Contact</span>
-                    <span class="support-value"><a href="mailto:hello@owl-systems.com">hello@owl-systems.com</a></span>
+                <div class="flex flex-wrap gap-2">
+                    <span class="font-museo text-cyan-300/80 min-w-[70px] text-xs uppercase">Contact</span>
+                    <span class="text-cyan-100 break-all"><a href="mailto:hello@owl-systems.com" class="text-cyan-400 border-b border-dotted border-cyan-400/50 hover:text-white">hello@owl-systems.com</a></span>
                 </div>
-                <div class="support-item">
-                    <span class="support-label">Téléphone</span>
-                    <span class="support-value">+33 1 85 51 01 55</span>
+                <div class="flex flex-wrap gap-2">
+                    <span class="font-museo text-cyan-300/80 min-w-[70px] text-xs uppercase">Téléphone</span>
+                    <span class="text-cyan-100">+33 1 85 51 01 55</span>
                 </div>
             </div>
 
-            <div class="client-message">
-                <a href="https://owl-systems.com/auth/login">Client existant ? Connectez-vous à votre espace.</a>
+            <!-- Message client -->
+            <div class="bg-cyan-500/10 border border-cyan-400/30 rounded-full px-4 py-2 text-center text-xs mb-4">
+                <a href="https://owl-systems.com/auth/login" class="text-cyan-400 font-medium hover:underline">Client existant ? Connectez-vous à votre espace.</a>
             </div>
 
-            <div class="footer-note">
-                <div class="legal">
+            <!-- Footer -->
+            <div class="border-t border-cyan-400/30 pt-3 flex flex-col md:flex-row justify-between text-[11px] text-cyan-300/60 gap-2">
+                <div class="flex gap-4 justify-center md:justify-start">
                     <span>OWL SYSTEMS®</span>
                     <span>SIRET 753 004 589</span>
                 </div>
-                <div class="slogan">On veille, vous dormez.</div>
+                <div class="font-museo text-cyan-400 italic text-center md:text-right">On veille, vous dormez.</div>
             </div>
         </div>
     </div>
 
-    <!-- Petit script pour l'audit (simple démo cohérente) -->
     <script>
         (function() {
-            const analyzeBtn = document.getElementById('analyzeBtn');
-            const urlInput = document.getElementById('auditUrl');
-
-            if (analyzeBtn && urlInput) {
-                analyzeBtn.addEventListener('click', function(e) {
+            const btn = document.getElementById('analyzeBtn');
+            const input = document.getElementById('auditUrl');
+            if (btn && input) {
+                btn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    let url = urlInput.value.trim();
+                    let url = input.value.trim();
                     if (url === "") {
                         alert("Veuillez entrer une URL à analyser.");
                         return;
@@ -492,9 +176,8 @@
                     if (!url.startsWith("http://") && !url.startsWith("https://")) {
                         url = "https://" + url;
                     }
-                    // Simulation d'analyse avec une notification style cyber
                     alert(`🔍 Analyse lancée pour ${url}\nStatut : Sécurité OWL SYSTEMS® activée. Un rapport détaillé vous sera communiqué sous 48h.`);
-                    urlInput.value = "";
+                    input.value = "";
                 });
             }
         })();
