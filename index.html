@@ -5,35 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>OWL SYSTEMS® — Adresse technique</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Personnalisations */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .font-museo {
-            font-family: 'MuseoModerno', sans-serif;
-        }
-        .glow-cyan {
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
-        }
-        .bg-owl-dark {
-            background-color: rgba(11, 14, 20, 0.55);
-        }
-        /* La chouette est cachée par défaut, visible à partir de 768px */
-        .owl-block {
-            display: none;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-museo { font-family: 'MuseoModerno', sans-serif; }
+        .glow-cyan { text-shadow: 0 0 8px rgba(0, 255, 255, 0.5); }
+        .bg-owl-dark { background-color: rgba(11, 14, 20, 0.55); }
+        .owl-block { display: none; }
         @media (min-width: 768px) {
             .owl-block {
                 display: flex;
                 position: fixed;
-                left: -5%;
+                left: 0;
                 top: 0;
                 width: 45%;
                 height: 100%;
@@ -52,27 +38,17 @@
                 pointer-events: none;
             }
         }
-        /* Ajustement pour que le conteneur ne soit pas écrasé par la chouette sur tablette/desktop */
-        @media (min-width: 768px) {
-            .landing-container {
-                margin-left: auto;
-                margin-right: 0;
-            }
-        }
-        /* Anti-débordement texte */
-        .break-anywhere {
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
+        .break-anywhere { overflow-wrap: break-word; word-break: break-word; }
+        .modal-enter { animation: fadeIn 0.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
 <body class="bg-[#0B0E14] bg-cover bg-center min-h-screen flex items-center justify-center p-4 md:p-8 relative overflow-x-hidden"
       style="background-image: url('images/background.webp');">
 
-    <!-- Overlay -->
     <div class="fixed inset-0 bg-black/45 backdrop-blur-[1.5px] z-0"></div>
 
-    <!-- Icône cookies -->
+    <!-- Cookies -->
     <div class="fixed bottom-5 left-5 z-[999]">
         <a href="/cookies" class="flex items-center justify-center w-11 h-11 bg-black/70 backdrop-blur-md border border-cyan-400/50 rounded-full text-cyan-400 hover:border-cyan-400 hover:shadow-[0_0_12px_#00FFFF] transition">
             <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
@@ -81,55 +57,47 @@
         </a>
     </div>
 
-    <!-- Chouette (visible dès 768px) -->
+    <!-- Chouette -->
     <div class="owl-block">
-        <img src="images/owl.png" alt="OWL Systems - hiboux gardiens" class="owl-image">
+        <img src="images/owl.png" alt="OWL Systems" class="owl-image">
     </div>
 
     <!-- Conteneur principal -->
-    <div class="landing-container relative z-10 w-full max-w-[1100px] bg-owl-dark backdrop-blur-xl border border-cyan-400/40 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),inset_0_0_0_1px_rgba(0,255,255,0.2),0_0_50px_rgba(0,255,255,0.5)]">
+    <div class="relative z-10 w-full max-w-[1100px] bg-owl-dark backdrop-blur-xl border border-cyan-400/40 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),inset_0_0_0_1px_rgba(0,255,255,0.2),0_0_50px_rgba(0,255,255,0.5)]">
         
-        <!-- Logo : centré sur mobile (<768px), position absolue à droite sur tablette/desktop (>=768px) -->
         <div class="relative md:absolute md:top-5 md:right-5 z-20 flex justify-center md:block mt-4 md:mt-0">
             <img src="images/owl-logo.png" alt="OWL SYSTEMS logo" class="h-12 md:h-14 w-auto drop-shadow-[0_0_15px_rgba(0,255,255,0.4)]">
         </div>
 
-        <!-- Contenu texte & formulaire, poussé à droite sur desktop pour éviter la chouette -->
         <div class="p-5 md:p-8 lg:p-10 w-full md:max-w-[500px] lg:max-w-[550px] ml-auto">
             <div class="font-museo text-xs md:text-sm uppercase tracking-[0.2em] text-cyan-400 mb-4 font-semibold glow-cyan">
                 Sécurité. Confiance. Performance.
             </div>
-            
             <h1 class="font-museo text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white mb-2">
                 <span class="text-cyan-400 glow-cyan">OWL</span> SYSTEMS<span class="text-cyan-400 text-lg md:text-2xl align-super">®</span>
             </h1>
-            
             <p class="text-cyan-100/80 text-sm md:text-base mb-4 break-anywhere">
                 Ce nom de domaine est une adresse technique utilisée par OWL SYSTEMS®.<br>
                 Le site officiel est accessible à l'adresse ci-dessous.
             </p>
 
-            <!-- Bloc site officiel -->
             <div class="bg-cyan-500/5 border-l-4 border-cyan-400 p-4 rounded-r-xl mb-5 shadow-[0_2px_10px_rgba(0,255,255,0.1)]">
                 <p class="font-museo text-cyan-300/70 text-xs uppercase tracking-wide">Site officiel</p>
                 <a href="https://owl-systems.com" class="font-museo text-xl md:text-2xl lg:text-3xl font-bold text-white border-b-2 border-cyan-400/60 hover:border-cyan-400 hover:text-cyan-400 transition break-all">owl-systems.com</a>
             </div>
 
-            <!-- Formulaire audit -->
             <div class="bg-cyan-500/5 border border-cyan-400/30 rounded-2xl p-4 md:p-5 backdrop-blur-sm mb-5">
                 <h3 class="font-museo text-cyan-400 text-base md:text-lg uppercase tracking-wide">Audit gratuit</h3>
                 <p class="text-cyan-200/80 text-xs md:text-sm mb-3">Entrez l'URL de votre site pour un diagnostic immédiat.</p>
                 <div class="flex flex-col sm:flex-row gap-2">
                     <input type="text" id="auditUrl" placeholder="https://votre-site.com" 
                            class="flex-1 bg-black/70 border border-cyan-400/40 rounded-full px-4 py-2 text-white text-sm focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_12px_rgba(0,255,255,0.3)]">
-                    <button id="analyzeBtn" 
-                            class="bg-cyan-500/20 border border-cyan-400/60 rounded-full px-5 py-2 font-museo font-bold uppercase text-cyan-400 text-sm hover:bg-cyan-500/40 hover:text-white transition">
+                    <button id="openModalBtn" class="bg-cyan-500/20 border border-cyan-400/60 rounded-full px-5 py-2 font-museo font-bold uppercase text-cyan-400 text-sm hover:bg-cyan-500/40 hover:text-white transition">
                         Analyser →
                     </button>
                 </div>
             </div>
 
-            <!-- Support -->
             <div class="space-y-2 mb-4 text-sm">
                 <div class="flex flex-wrap gap-2">
                     <span class="font-museo text-cyan-300/80 min-w-[70px] text-xs uppercase">Support</span>
@@ -141,16 +109,16 @@
                 </div>
                 <div class="flex flex-wrap gap-2">
                     <span class="font-museo text-cyan-300/80 min-w-[70px] text-xs uppercase">Téléphone</span>
-                    <span class="text-cyan-100">+33 1 85 51 01 55</span>
+                    <span class="text-cyan-100 break-all">
+                        <a href="tel:+33185510155" class="text-cyan-400 border-b border-dotted border-cyan-400/50 hover:text-white">+33 1 85 51 01 55</a>
+                    </span>
                 </div>
             </div>
 
-            <!-- Message client -->
             <div class="bg-cyan-500/10 border border-cyan-400/30 rounded-full px-4 py-2 text-center text-xs mb-4">
                 <a href="https://owl-systems.com/auth/login" class="text-cyan-400 font-medium hover:underline">Client existant ? Connectez-vous à votre espace.</a>
             </div>
 
-            <!-- Footer -->
             <div class="border-t border-cyan-400/30 pt-3 flex flex-col md:flex-row justify-between text-[11px] text-cyan-300/60 gap-2">
                 <div class="flex gap-4 justify-center md:justify-start">
                     <span>OWL SYSTEMS®</span>
@@ -161,25 +129,114 @@
         </div>
     </div>
 
+    <!-- MODALE -->
+    <div id="auditModal" class="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-all duration-200 opacity-0 invisible">
+        <div class="bg-gradient-to-br from-[#0F172A] to-[#0B0E14] border border-cyan-500/40 rounded-2xl max-w-md w-full shadow-2xl shadow-cyan-500/20 modal-enter">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <h3 class="font-museo text-xl font-bold text-cyan-400">Analyse OWL SYSTEMS®</h3>
+                    </div>
+                    <button id="closeModalBtn" class="text-gray-400 hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="modalMessage" class="text-gray-200 text-sm space-y-3"></div>
+                <div class="mt-6 flex justify-end">
+                    <button id="confirmModalBtn" class="bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 font-medium py-2 px-5 rounded-full border border-cyan-500/50 transition">
+                        Compris
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         (function() {
-            const btn = document.getElementById('analyzeBtn');
-            const input = document.getElementById('auditUrl');
-            if (btn && input) {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    let url = input.value.trim();
-                    if (url === "") {
-                        alert("Veuillez entrer une URL à analyser.");
-                        return;
-                    }
-                    if (!url.startsWith("http://") && !url.startsWith("https://")) {
-                        url = "https://" + url;
-                    }
-                    alert(`🔍 Analyse lancée pour ${url}\nStatut : Sécurité OWL SYSTEMS® activée. Un rapport détaillé vous sera communiqué sous 48h.`);
-                    input.value = "";
-                });
+            const openBtn = document.getElementById('openModalBtn');
+            const modal = document.getElementById('auditModal');
+            const closeBtn = document.getElementById('closeModalBtn');
+            const confirmBtn = document.getElementById('confirmModalBtn');
+            const modalMessage = document.getElementById('modalMessage');
+            const urlInput = document.getElementById('auditUrl');
+
+            function showModal(message) {
+                modalMessage.innerHTML = message;
+                modal.classList.remove('opacity-0', 'invisible');
+                modal.classList.add('opacity-100', 'visible');
             }
+
+            function hideModal() {
+                modal.classList.remove('opacity-100', 'visible');
+                modal.classList.add('opacity-0', 'invisible');
+            }
+
+            function launchAudit() {
+                let url = urlInput.value.trim();
+                if (url === "") {
+                    showModal(`
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-amber-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                            <div>
+                                <p class="font-medium">Aucune URL saisie</p>
+                                <p class="text-gray-300 text-xs mt-1">Veuillez entrer l'adresse de votre site.</p>
+                            </div>
+                        </div>
+                    `);
+                    return;
+                }
+                if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                    url = "https://" + url;
+                }
+                try {
+                    new URL(url);
+                } catch(e) {
+                    showModal(`
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-rose-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="font-medium">URL invalide</p>
+                                <p class="text-gray-300 text-xs mt-1">Exemple : https://monsite.com</p>
+                            </div>
+                        </div>
+                    `);
+                    return;
+                }
+
+                // Service temporairement désactivé
+                showModal(`
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-amber-400">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                            <span class="font-museo text-sm font-bold">Service temporairement désactivé</span>
+                        </div>
+                        <p class="text-sm text-gray-200">La fonction d'analyse automatique est en cours de maintenance.</p>
+                        <div class="bg-black/30 p-3 rounded-lg text-xs text-gray-300">
+                            🔧 OWL SYSTEMS® prépare une nouvelle version de son audit.<br>
+                            Merci de réessayer ultérieurement ou de contacter notre support.
+                        </div>
+                        <p class="text-xs text-cyan-400/70">Nous nous excusons pour la gêne occasionnée.</p>
+                    </div>
+                `);
+                urlInput.value = "";
+            }
+
+            openBtn.addEventListener('click', (e) => { e.preventDefault(); launchAudit(); });
+            closeBtn.addEventListener('click', hideModal);
+            confirmBtn.addEventListener('click', hideModal);
+            modal.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
+            urlInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); launchAudit(); } });
         })();
     </script>
 </body>
